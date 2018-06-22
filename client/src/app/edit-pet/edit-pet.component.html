@@ -1,0 +1,59 @@
+<div class="wrapper">
+  <h1>Pet Shelter</h1>
+  <h3>Edit this pet</h3>
+  <div *ngIf="errors_list" class="error-message">
+      <p *ngFor="let e of errors_list">{{ e }}</p>
+    </div>
+  <div class="create-edit">
+    <form (submit)="updateOnePet()" #myForm="ngForm">
+      <div *ngIf="pet_name.invalid && (pet_name.dirty || pet_name.touched)" class="alert alert-danger">
+        <div *ngIf="pet_name.errors.required">pet_name is required (front-end).</div>
+        <div *ngIf="pet_name.errors.minlength">pet_name must be at least 3 characters long (front-end).</div>
+      </div>
+      Pet Name<input 
+        type="text" 
+        name="pet_name" 
+        required 
+        minlength="3" 
+        [(ngModel)]="pet.name"
+        #pet_name='ngModel'
+        class="form-control"
+      />
+      <div *ngIf="pet_type.invalid && (pet_type.dirty || pet_type.touched)" class="alert alert-danger">
+        <div *ngIf="pet_type.errors.required">pet_name is required (front-end).</div>
+        <div *ngIf="pet_type.errors.minlength">pet_name must be at least 3 characters long (front-end).</div>
+      </div>
+      Pet Type<input 
+        type="text" 
+        name="pet_type" 
+        required 
+        minlength="3" 
+        [(ngModel)]="pet.pet_type"
+        #pet_type='ngModel'
+        class="form-control"
+      />
+      <div *ngIf="pet_description.invalid && (pet_description.dirty || pet_description.touched)" class="alert alert-danger">
+        <div *ngIf="pet_description.errors.required">pet_description is required (front-end).</div>
+        <div *ngIf="pet_description.errors.minlength">pet_description must be at least 3 characters long (front-end).</div>
+      </div>
+      Pet Description<input 
+        type="text" 
+        name="pet_description" 
+        required 
+        minlength="3" 
+        [(ngModel)]="pet.description"
+        #pet_description='ngModel'
+        class="form-control"
+      />
+      <p>Skills (optional):</p>
+      Skill 1:<input type="text" name="pet_skill1" [(ngModel)]="pet.skill1" class="form-control">
+      Skill 2:<input type="text" name="pet_skill2" [(ngModel)]="pet.skill2" class="form-control">
+      Skill 3:<input type="text" name="pet_skill3" [(ngModel)]="pet.skill3" class="form-control">
+      <div class="text-right">
+        <!-- <button type="submit" [disabled]="!myForm.form.valid" class="btn btn-success">Edit Pet</button> -->
+        <button type="submit" class="btn btn-success">Edit Pet</button>
+        <button [routerLink]="['/pets']" class="btn btn-secondary">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>

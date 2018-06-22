@@ -1,0 +1,15 @@
+<div class="wrapper">
+    <h1>Pet Shelter</h1><a [routerLink]="['/pets']">Home</a>
+    <h3>Details about {{ pet.name }}</h3>
+    <div class="create-edit">
+      <h3 class="pet-titles">Pet Type</h3><p class="pet-content">{{ pet.pet_type }}</p>
+      <h3 class="pet-titles">Pet Description</h3><p class="pet-content">{{ pet.description }}</p>
+      <h3>Skills</h3>
+      <p>{{ pet.skill1 }}</p>
+      <p>{{ pet.skill2 }}</p>
+      <p>{{ pet.skill3 }}</p>
+      <h3 class="pet-titles">Likes</h3><p class="pet-content">{{ pet.likes }}</p>      
+      <button class="btn btn-primary" [disabled]="isDisabled" (click)="likeOnePet()">Like This Pet</button>
+      <button class="btn btn-success" (click)="deleteOnePet()">Adopt This Pet</button>
+    </div>
+</div>

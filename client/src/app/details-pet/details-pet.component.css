@@ -1,0 +1,10 @@
+.pet-titles,.pet-content{
+    display: inline-block;
+    width:50%;
+}
+.pet-content{
+    text-align: left;
+}
+.create-edit{
+    border:none;
+}
